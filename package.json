@@ -2,15 +2,46 @@
   "name": "electronapp",
   "version": "1.0.0",
   "description": "Scheduler application made with electron",
-  "main": "main.js",
+  "main": "src/mainProcess/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node main.js"
+    "start": "electron .",
+    "dev": "webpack-dev-server --config ./webpack.config.js",
+    "bundle": "webpack --config ./webpack.config.prod.js",
+    "electron-pack": "electron-builder --win --x64 -c.extraMetadata.main=./src/mainProcess/main.js",
+    "cp": "cp dist/electronapp\\ Setup\\ 1.0.0.exe /home/maks/Public"
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "html-loader": "^3.0.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
   "devDependencies": {
-    "electron": "^15.3.0"
+    "electron-builder": "^22.13.1",
+    "@babel/core": "^7.15.8",
+    "@babel/plugin-proposal-class-properties": "^7.14.5",
+    "@babel/preset-react": "^7.14.5",
+    "babel-loader": "^8.2.3",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^6.4.0",
+    "electron": "^15.3.0",
+    "html-webpack-plugin": "^5.4.0",
+    "style-loader": "^3.3.0",
+    "webpack": "^5.59.1",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.3.1"
+  },
+  "build": {
+    "appId": "com.electron.myElectronApp",
+    "files": [
+      "dist/index.html",
+      "dist/renderer.prod.js",
+      "src/mainProcess/main.js",
+      "preload.js",
+      "package.json",
+      "node_modules"
+    ]
   }
 }
