@@ -1,6 +1,6 @@
 {
   "name": "scheduler",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Scheduler application made with electron",
   "main": "src/mainProcess/main.js",
   "scripts": {
@@ -15,6 +15,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "electron-updater": "^4.3.9",
     "exceljs": "^4.3.0",
     "html-loader": "^3.0.0",
     "nodemailer": "^6.7.0",
@@ -42,7 +43,10 @@
   "build": {
     "appId": "com.electron.myElectronApp",
     "win": {
-      "icon": "./src/mainProcess/icon.ico"
+      "icon": "./src/mainProcess/icon.ico",
+      "target": [
+        "nsis"
+      ]
     },
     "files": [
       "dist/index.html",

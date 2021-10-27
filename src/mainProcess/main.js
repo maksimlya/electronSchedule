@@ -1,6 +1,7 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
 const { processData } = require('./excelParser');
 const path = require('path');
+const { autoUpdater } = require('electron-updater');
 
 async function createWindow () {
     const win = new BrowserWindow({
@@ -39,5 +40,12 @@ app.on('window-all-closed', function () {
 process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = true;
 
 app.on('ready', createWindow);
+
+autoUpdater.autoDownload = true;
+autoUpdater.on('update-downloaded', () => {
+  setTimeout(() => {
+    autoUpdater.quitAndInstall();
+  }, 5* 1000);
+})
 
 
