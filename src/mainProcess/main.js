@@ -1,10 +1,40 @@
-const { app, BrowserWindow, ipcMain } = require('electron');
+const { app, BrowserWindow, ipcMain, Menu } = require('electron');
 const { processData } = require('./excelParser');
+const log = require('electron-log');
 const path = require('path');
 const { autoUpdater } = require('electron-updater');
 
+autoUpdater.logger = log;
+autoUpdater.logger.transports.file.level = 'info';
+log.info('App starting...');
+let win;
+
+let template = []
+  // OS X
+  const name = app.getName();
+  template.unshift({
+    label: name,
+    submenu: [
+      {
+        label: 'About ' + name,
+        role: 'about'
+      },
+      {
+        label: 'Quit',
+        accelerator: 'Command+Q',
+        click() { app.quit(); }
+      },
+    ]
+  })
+
+
 async function createWindow () {
-    const win = new BrowserWindow({
+  autoUpdater.checkForUpdatesAndNotify();
+   // Create the Menu
+   const menu = Menu.buildFromTemplate(template);
+   Menu.setApplicationMenu(menu);
+
+    win = new BrowserWindow({
         width: 800,
         height: 600,
         icon: 'icon.ico',
@@ -14,6 +44,7 @@ async function createWindow () {
             contextIsolation: false
           }
 })
+ // win.webContents.openDevTools();
   win.setMenu(null);
 
   // win.loadURL('http://localhost:1111');
@@ -40,12 +71,5 @@ app.on('window-all-closed', function () {
 process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = true;
 
 app.on('ready', createWindow);
-
-autoUpdater.autoDownload = true;
-autoUpdater.on('update-downloaded', () => {
-  setTimeout(() => {
-    autoUpdater.quitAndInstall();
-  }, 5* 1000);
-})
 
 

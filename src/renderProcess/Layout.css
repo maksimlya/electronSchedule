@@ -4,10 +4,10 @@
 .noon:hover {
     background-color: grey
 }
-
+/* 
 body {
     background-color: rgb(236, 247, 247);
-}
+} */
 
 .popover {
     transform: translateX(-100px);
