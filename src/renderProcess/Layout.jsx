@@ -107,9 +107,12 @@ export class CalendarLayout extends Component {
         if(this.selectedPerson.current) {
             this.selectedPerson.current.id = '';
         }
-        this.setState({selectedPerson: e.target.innerText === this.state.selectedPerson ? null : e.target.innerText});
-        this.selectedPerson.current = e.target.parentNode;
-        this.selectedPerson.current.id = 'selected';
+        let isDeselect = e.target.innerText === this.state.selectedPerson;
+        this.setState({selectedPerson: isDeselect ? null : e.target.innerText});
+        if(!isDeselect) {
+            this.selectedPerson.current = e.target.parentNode;
+            this.selectedPerson.current.id = 'selected';
+        }
     }
 
     onClick = e => {
