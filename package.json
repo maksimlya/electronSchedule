@@ -1,6 +1,6 @@
 {
   "name": "scheduler",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "Scheduler application made with electron",
   "main": "src/mainProcess/main.js",
   "scripts": {
