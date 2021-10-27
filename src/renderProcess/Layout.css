@@ -1,0 +1,129 @@
+.myj:hover {
+    background-color: grey
+}
+.noon:hover {
+    background-color: grey
+}
+
+.popover {
+    transform: translateX(-100px);
+    position: 'absolute';
+    z-index: 2;
+}
+
+#selected {
+    border: solid black 4px;
+}
+
+.nameContainer {
+    z-index: 5;
+}
+.nameInput {
+    width: 80px;
+}
+.nameField {
+    width: 120px;
+}
+.nameColor {
+    border: solid;
+    width:10px;
+    padding: 1px;
+    font-size: 15px;
+    display: inline;
+}
+
+.myi {
+    border: solid;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    height: 22px;
+    margin: 1px;
+}
+.myj {
+    border: solid;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    height: 22px;
+    margin: 1px;
+}
+
+.people {
+    border: solid red;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    height: 20px;
+    font-weight: bold;
+}
+.people .content {
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    z-index: 20;
+}
+
+.myk {
+    border:steelblue solid;
+}
+
+.picker {
+    z-index: 100;
+}
+
+.box {
+    text-align: center;
+    border: solid;
+}
+
+.month-picker > .rmp-container.rmp-table {
+    transform: translateX(-150px);
+}
+
+@media screen and (max-width:1000px) {
+    .myj {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width:600px){
+    .month-picker > .rmp-container.rmp-table {
+        width: 300px;
+        transform: translateX(-250px) translateY(250px);
+    }
+    .myj {
+        font-size: 8px;
+    }
+
+    .myi {
+        font-size: 8px;
+    }
+
+    .nameInput {
+        width: 40px;
+        height: 10px;
+        font-size: 10px;
+    }
+    .nameField {
+        width: 80px;
+        font-size: 10px;
+    }
+    .nameColor {
+        border: solid;
+        width:10px;
+        padding: 1px;
+        font-size: 10px;
+        display: inline;
+    }
+    .popover {
+        transform: translateX(-180px);
+    }
+
+    .box {
+        font-size: 8px;
+    }
+}
+

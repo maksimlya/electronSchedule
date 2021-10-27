@@ -1,6 +1,9 @@
 import ReactDOM from 'react-dom';
 import React from 'react';
+import {CalendarLayout} from './renderProcess/Layout.jsx';
+
 const App = () => {
- return <h1>This is my React app!</h1>;
+    console.log('a');
+ return <CalendarLayout/>;
  }
 ReactDOM.render(<App />, document.getElementById('app'));

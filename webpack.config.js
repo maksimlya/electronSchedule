@@ -16,7 +16,7 @@ entry: [
 ],
   module: {
     rules: [{
-   test: /\.js$/,
+   test: /\.(js|jsx)$/,
    exclude: /node_modules/,
    use: {
      loader: "babel-loader"
@@ -66,7 +66,7 @@ entry: [
     historyApiFallback: {
       verbose: true,
       disableDotRule: false
-    },
+    }
     // before() {
     //     console.log('Starting Main Process...');
     //     child_process.spawn('npm', ['run', 'start-main-dev'], {

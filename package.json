@@ -1,25 +1,29 @@
 {
-  "name": "electronapp",
-  "version": "1.0.0",
+  "name": "Scheduler",
+  "version": "1.2.0",
   "description": "Scheduler application made with electron",
   "main": "src/mainProcess/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron .",
+    "start": "electron --inspect=5858 .",
     "dev": "webpack-dev-server --config ./webpack.config.js",
     "bundle": "webpack --config ./webpack.config.prod.js",
-    "electron-pack": "electron-builder --win --x64 -c.extraMetadata.main=./src/mainProcess/main.js",
-    "cp": "cp dist/electronapp\\ Setup\\ 1.0.0.exe /home/maks/Public"
+    "build": "electron-builder --win --x64 -c.extraMetadata.main=./src/mainProcess/main.js",
+    "cp": "cp dist/Scheduler\\ Setup\\ 1.2.0.exe /home/maks/Public"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "exceljs": "^4.3.0",
     "html-loader": "^3.0.0",
+    "nodemailer": "^6.7.0",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-color": "^2.19.3",
+    "react-dom": "^17.0.2",
+    "react-grid-layout": "^1.3.0",
+    "react-month-picker": "^2.2.1"
   },
   "devDependencies": {
-    "electron-builder": "^22.13.1",
     "@babel/core": "^7.15.8",
     "@babel/plugin-proposal-class-properties": "^7.14.5",
     "@babel/preset-react": "^7.14.5",
@@ -27,6 +31,7 @@
     "babel-preset-react": "^6.24.1",
     "css-loader": "^6.4.0",
     "electron": "^15.3.0",
+    "electron-builder": "^22.13.1",
     "html-webpack-plugin": "^5.4.0",
     "style-loader": "^3.3.0",
     "webpack": "^5.59.1",
@@ -35,10 +40,13 @@
   },
   "build": {
     "appId": "com.electron.myElectronApp",
+    "win": {
+      "icon": "./src/mainProcess/icon.ico"
+    },
     "files": [
       "dist/index.html",
       "dist/renderer.prod.js",
-      "src/mainProcess/main.js",
+      "src/mainProcess",
       "preload.js",
       "package.json",
       "node_modules"

@@ -1,6 +1,5 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const path = require('path');
-const port = 1111;
 const htmlPlugin = new HtmlWebPackPlugin({
  template: "./src/public/index.html",
  filename: "./index.html"
@@ -12,7 +11,7 @@ entry: [
 ],
   module: {
     rules: [{
-   test: /\.js$/,
+   test: /\.(js|jsx)$/,
    exclude: /node_modules/,
    use: {
      loader: "babel-loader"
