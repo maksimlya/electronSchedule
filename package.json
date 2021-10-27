@@ -1,6 +1,6 @@
 {
-  "name": "Scheduler",
-  "version": "1.2.0",
+  "name": "scheduler",
+  "version": "v1.2.1",
   "description": "Scheduler application made with electron",
   "main": "src/mainProcess/main.js",
   "scripts": {
@@ -9,7 +9,8 @@
     "dev": "webpack-dev-server --config ./webpack.config.js",
     "bundle": "webpack --config ./webpack.config.prod.js",
     "build": "electron-builder --win --x64 -c.extraMetadata.main=./src/mainProcess/main.js",
-    "cp": "cp dist/Scheduler\\ Setup\\ 1.2.0.exe /home/maks/Public"
+    "cp": "cp dist/Scheduler\\ Setup\\ 1.2.0.exe /home/maks/Public",
+    "pub": "electron-builder --win --x64 -c.extraMetadata.main=./src/mainProcess/main.js --publish onTagOrDraft"
   },
   "author": "",
   "license": "ISC",
@@ -51,5 +52,10 @@
       "package.json",
       "node_modules"
     ]
+  },
+  "publish": {
+    "provider": "github",
+    "owner": "maksimlya",
+    "repo": "electronSchedule"
   }
 }
