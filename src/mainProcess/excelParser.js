@@ -109,7 +109,7 @@ module.exports.processData = function(payload) {
    wb.xlsx.writeFile(`${desktopDir}/data.xlsx`).then(async res => {
     transporter.sendMail({
         from: '"Schedule Sender" <test12home@gmail.com>',
-        to: 'maksimlya@gmail.com',
+        to: 'thalialya173@gmail.com',
         subject: 'סידור עבודה',
         text: "סידור עבודה מצורף",
         attachments: [
